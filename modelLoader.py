@@ -41,3 +41,12 @@ class LattueseModelLoader:
     def train(self, X, y):
         self.model = self.model.fit(X, y)
         self.save()
+
+    def predictionPipeline(self, DaySincePlanted, Humidity, Tempreture, DailySunExposure,
+                     WaterPhLevel, NutrientLevel, SunExposureIntensityLux,
+                     VisibleLightWaveLength, TempretureDeviation, HumidityDeviation, FanSpeed):
+        X = self.fetchingData(DaySincePlanted, Humidity, Tempreture, DailySunExposure,
+                     WaterPhLevel, NutrientLevel, SunExposureIntensityLux,
+                     VisibleLightWaveLength, TempretureDeviation, HumidityDeviation, FanSpeed)
+        y = self.predict(X)
+        return y
